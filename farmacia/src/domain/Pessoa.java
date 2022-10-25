@@ -1,16 +1,16 @@
 package domain;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Locale;
 
 public class Pessoa {
+    private Integer identificador;
     private String nome;
     private Integer idade;
     private String endereço;
     private LocalDate dataNascimento;
 
-    public Pessoa(String nome, LocalDate dataNascimento, String endereço) {
+    public Pessoa(Integer identificador, String nome, LocalDate dataNascimento, String endereço) {
+        this.identificador = identificador;
         this.nome = nome;
         this.dataNascimento = dataNascimento;
         this.endereço = endereço;
@@ -25,6 +25,21 @@ public class Pessoa {
         return  this.idade;
     }
 
+    public Integer getIdentificador() {
+        return identificador;
+    }
+
+    public void setIdentificador(Integer identificador) {
+        this.identificador = identificador;
+    }
+
+    public LocalDate getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(LocalDate dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
 
     public String getNome() {
         return nome;

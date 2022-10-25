@@ -10,14 +10,14 @@ import java.util.List;
 //            Filho=sub          Pai=super
 public class Funcionario extends Pessoa{
     private List<Medicacao> medicamentos = new ArrayList<>();
-    public Funcionario(String nome, LocalDate dataNascimento, String endereço) {
-        super(nome, dataNascimento, endereço);//construtor com parametros de Pessoa
+    public Funcionario(Integer identificador, String nome, LocalDate dataNascimento, String endereço) {
+        super(identificador, nome, dataNascimento, endereço);//construtor com parametros de Pessoa
 //        super();//construtor vazio de Pessoa
         ListaPessoa.adicionar(this);
 
     }
 
-    public void criarMedicacao(Medicacao medicacao){
+    public void adicionarMedicacao(Medicacao medicacao){
         medicamentos.add(medicacao);
         System.out.println("Medicacao Criada");
     };

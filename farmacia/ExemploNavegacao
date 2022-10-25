@@ -1,0 +1,41 @@
+Você é qual tipo de colaborador:
+1. Funcionario
+2. Supervisor
+3. Gerente
+
+
+1. Criar Um novo
+2. Entrar em uma conta
+
+1. Criar Um novo
+"Você"
+Nome
+SobreNome
+...
+
+
+2. Entrar em uma conta
+id
+tipo colaborador
+
+
+O que você quer fazer:
+1. Listar Documentos
+2. Criar Documento
+3. Tramitar Documento
+(Supervisor) Rejeitar Documento
+(Gerente) Aquivar Documento
+
+1. Listar Documentos
+- exiber cada documento e os atributos dele
+
+2. Criar Documento
+- Coloca todos os dados para um documento
+URL: ahsdkahdj
+Estado ativo
+Identificado do criador ("seu")
+Identificador do colaborador responsável ("seu")
+
+3. Tramitar Documento
+- Superior que vai receber o doc (identificador)
+- Qual é o documento (identificador)

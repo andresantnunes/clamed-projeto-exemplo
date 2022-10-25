@@ -18,4 +18,8 @@ public class ListaPessoa {
         return pessoas.get(id);
     }
 
+    public static List<Pessoa> retornarTodos(){
+        return pessoas;
+    }
+
 }
