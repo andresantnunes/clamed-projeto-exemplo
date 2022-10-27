@@ -25,11 +25,15 @@ public class Farmaceutico extends Funcionario{
         System.out.println(medicamentos);
     };
 
+    @Override
     public void pedirAprovacaoMedicacao(Integer idAprovador, Integer idMedicacao){
-        FarmaceuticoSenior aprovador = ListaFarmaceuticoSenior.retornar(idAprovador);
-        aprovador.aprovarMedicacao(
-                medicamentos.get(idMedicacao)
-        );
+        try{
+            FarmaceuticoSenior aprovador = ListaFarmaceuticoSenior.retornar(idAprovador);
+            aprovador.adicionarMedicacao(medicamentos.get(idMedicacao));
+        }catch (Exception e){
+            throw e;
+        }
+
     }
 
 

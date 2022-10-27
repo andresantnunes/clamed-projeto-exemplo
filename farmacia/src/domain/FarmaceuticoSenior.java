@@ -7,8 +7,9 @@ import repository.ListaFarmaceuticoSenior;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
-public class FarmaceuticoSenior extends Funcionario{
+public class FarmaceuticoSenior extends Funcionario {
     private static Integer contador = 0;
     private static List<Medicacao> medicamentosAprovados = new ArrayList<>();
     private static List<Medicacao> medicamentosPendente = new ArrayList<>();
@@ -19,16 +20,52 @@ public class FarmaceuticoSenior extends Funcionario{
     }
 
     @Override
-    public void adicionarMedicacao(Medicacao medicacao){
-        medicamentosAprovados.add(medicacao);
+    public void adicionarMedicacao(Medicacao medicacao) {
+        medicamentosPendente.add(medicacao);
         System.out.println("Medicacao Criada");
         System.out.println(medicacao);
-        System.out.println(medicamentosAprovados);
-    };
+        System.out.println(medicamentosPendente);
+    }
+
+    ;
 
 
-    public void aprovarMedicacao(Medicacao medicacao){
+    public void aprovarMedicacao(Long idMedicamentoPendente) {
         System.out.println("Medicacao Aprovada por FarmaceuticoSenior, nome: " + this.getNome());
-        medicamentosAprovados.add(medicacao);
+
+        for (Medicacao medicacao : medicamentosPendente) {
+            if (Objects.equals(medicacao.getIdentificador(), idMedicamentoPendente)) {
+                medicamentosPendente.remove(medicacao);
+                medicacao.setNome("nome2");
+                medicamentosAprovados.add(medicacao);
+            }
+        }
+
+    }
+
+    public void reverterMedicacaoAprovada(Long idMedicamentoAprovado) {
+        System.out.println("Medicacao Revertida por FarmaceuticoSenior, nome: " + this.getNome());
+
+        for (Medicacao medicacao :
+                medicamentosAprovados) {
+            if (Objects.equals(medicacao.getIdentificador(), idMedicamentoAprovado)) {
+                medicamentosPendente.add(medicacao);
+                medicamentosPendente.remove(medicacao);
+            }
+        }
+
+    }
+
+//    public void rejeitarMedicacao(Long idMedicamento, Integer idFarmaceutico) {
+    public void rejeitarMedicacao(Long idMedicamento, Farmaceutico farmaceutico) {
+//        Farmaceutico farmaceutico = ListaFarmaceutico.retornar(idFarmaceutico);
+
+        for (Medicacao medicacao :
+                medicamentosPendente) {
+            if (Objects.equals(medicacao.getIdentificador(), idMedicamento)) {
+                farmaceutico.adicionarMedicacao(medicacao);
+                medicamentosPendente.remove(medicacao);
+            }
+        }
     }
 }

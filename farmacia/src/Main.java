@@ -1,8 +1,9 @@
 import domain.Farmaceutico;
 import domain.FarmaceuticoSenior;
 import repository.ListaFarmaceutico;
+import repository.ListaFarmaceuticoSenior;
 import repository.ListaPessoa;
-import servico.Servico;
+import service.Servico;
 
 import java.time.LocalDate;
 import java.util.Scanner;
@@ -15,6 +16,8 @@ public class Main {
                 LocalDate.of(2012,1,1),
                 "rua das lamentações 17"
         );
+
+        farmaceutico.getIdade();
 
         Farmaceutico farmaceutico1 = new Farmaceutico(
                 "Aroudo Vasconcelos Lima",
@@ -58,13 +61,17 @@ public class Main {
 
         Servico servico = new Servico();
 
-        Scanner scanner = new Scanner(System.in);
+        Scanner scannerNavegacao = new Scanner(System.in);
 
         boolean executa = true;
         while(executa){
             System.out.print("Qual o seu id: ");
-            Integer id = scanner.nextInt();
-            Farmaceutico usuario = ListaFarmaceutico.retornar(id);
+            Integer id = scannerNavegacao.nextInt();
+
+//            System.out.print("Qual o seu nível: ");
+//            Integer id = scannerNavegacao.nextInt();
+
+            FarmaceuticoSenior usuario = ListaFarmaceuticoSenior.retornar(id);
             System.out.println();
 
             System.out.print("Qual operacao você deseja realizar: " +
@@ -72,7 +79,7 @@ public class Main {
                     "\n 2 - Pedir Aprovação da Medicação" +
                     "\n Entre a opção escolhida:");
 
-            Integer operacao = scanner.nextInt();
+            Integer operacao = scannerNavegacao.nextInt();
 
             switch (operacao){
                 case 1:
@@ -89,7 +96,7 @@ public class Main {
                     "\n 2 - Não" +
                     "\n Entre a opção escolhida:");
 
-            Integer encerrar = scanner.nextInt();
+            Integer encerrar = scannerNavegacao.nextInt();
 
             switch (encerrar){
                 case 1:
@@ -100,6 +107,6 @@ public class Main {
                     break;
             }
         }
-//        System.out.printf(ListaPessoa.retornarTodos().toString());
+        System.out.printf(ListaPessoa.retornarTodos().toString());
     }
 }

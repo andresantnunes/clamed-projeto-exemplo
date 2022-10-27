@@ -6,14 +6,17 @@ public class Pessoa {
     private Integer identificador;
     private String nome;
     private Integer idade;
-    private String endereço;
+    private String endereco;
     private LocalDate dataNascimento;
 
-    public Pessoa(Integer identificador, String nome, LocalDate dataNascimento, String endereço) {
+    public Pessoa(Integer identificador,
+                  String nome,
+                  LocalDate dataNascimento,
+                  String endereço) {
         this.identificador = identificador;
         this.nome = nome;
         this.dataNascimento = dataNascimento;
-        this.endereço = endereço;
+        this.endereco = endereço;
         this.idade = calculaIdade();
     }
 
@@ -57,21 +60,20 @@ public class Pessoa {
         this.idade = idade;
     }
 
-    public String getEndereço() {
-        return endereço;
+    public String getEndereco() {
+        return endereco;
     }
 
-    public void setEndereço(String endereço) {
-        this.endereço = endereço;
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
 
     @Override
     public String toString() {
-        return "Pessoa{" +
-                "nome='" + nome + '\'' +
+        return "identificador=" + identificador +
+                ", nome='" + nome + '\'' +
                 ", idade=" + idade +
-                ", endereço='" + endereço + '\'' +
-                ", dataNascimento=" + dataNascimento +
-                '}';
+                ", endereço='" + endereco + '\'' +
+                ", dataNascimento=" + dataNascimento;
     }
 }
